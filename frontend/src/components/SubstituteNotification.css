@@ -1,0 +1,13 @@
+.substitute-notification-container {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border: 1px solid #ddd;
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 5px;
+}
+
+.substitute-notification-container h2 {
+    color: #007bff;
+    text-align: center;
+}
