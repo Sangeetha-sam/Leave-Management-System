@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../../BDA/DonationBC"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "LeaveManagementSystem"
+	}
+}
