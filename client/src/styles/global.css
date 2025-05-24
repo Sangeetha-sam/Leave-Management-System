@@ -1,0 +1,368 @@
+/* global.css - styles for all pages */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Leave table styling */
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.leave-table th,
+.leave-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.leave-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Status badges */
+.status {
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+  text-transform: capitalize;
+}
+.status.Pending {
+  background-color: orange;
+}
+.status.Approved {
+  background-color: green;
+}
+.status.Rejected {
+  background-color: red;
+}
+
+/* Quick Links */
+.quick-links {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.quick-links li {
+  margin-bottom: 10px;
+}
+
+.quick-links a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.quick-links a:hover {
+  text-decoration: underline;
+}
+
+/* Form and layout styles */
+form {
+  max-width: 700px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+/* Container common */
+.dashboard-container, .apply-leave-container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* HODDashboard Styles */
+
+.hod-dashboard-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.hod-dashboard-container h1 {
+  color: #004085;
+  margin-bottom: 1rem;
+}
+
+.hod-dashboard-container button {
+  background-color: #004085;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.hod-dashboard-container button:hover {
+  background-color: #002752;
+}
+
+.hod-dashboard-container h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #003366;
+}
+
+.hod-dashboard-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.hod-dashboard-container table, 
+.hod-dashboard-container th, 
+.hod-dashboard-container td {
+  border: 1px solid #ddd;
+}
+
+.hod-dashboard-container th, 
+.hod-dashboard-container td {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.hod-dashboard-container th {
+  background-color: #004085;
+  color: white;
+  font-weight: 600;
+}
+
+.hod-dashboard-container tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.hod-dashboard-container tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.hod-dashboard-notifications {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.hod-dashboard-notifications li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.hod-dashboard-notifications li:last-child {
+  border-bottom: none;
+}
+
+/* Global Header Styles */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004085;
+  padding: 10px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.nav-bar {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-bottom: 2px solid #ffc107;
+  color: #ffc107;
+}
+
+.notification-badge {
+  background-color: #dc3545;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 50%;
+  position: absolute;
+  top: -6px;
+  right: -12px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.home-container {
+  max-width: 600px;
+  margin: 100px auto;
+  background: white;
+  padding: 40px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.home-container h1 {
+  color: #004085;
+  margin-bottom: 1rem;
+}
+
+.home-container p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* global.css or Login.css */
+.auth-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #004d99;
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-container label {
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.auth-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: #004d99;
+}
+
+.auth-container button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #004d99;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #003366;
+}
+
+.auth-container p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.auth-container a {
+  color: #004d99;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+.error-msg {
+  color: #cc0000;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
