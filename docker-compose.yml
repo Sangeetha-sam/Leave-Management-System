@@ -1,0 +1,21 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./client
+    ports:
+      - "3000:80"
+    container_name: leave-frontend
+    restart: always
+
+  backend:
+    build:
+      context: ./server
+    ports:
+      - "5000:5000"
+    container_name: leave-backend
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI="mongodb+srv://sangeethae134:sangeetha134@cluster0.i69fbg1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+      - JWT_SECRET="s3cr3t_K3y"
