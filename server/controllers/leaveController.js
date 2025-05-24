@@ -172,7 +172,7 @@ export const updateLeaveStatus = async (req, res) => {
     if (teacher) {
       await sendNotification(
         teacher._id,
-        'Your leave request from ${leave.startDate} to ${leave.endDate} has been ${status.toLowerCase()}.'
+        `Your leave request from ${leave.startDate} to ${leave.endDate} has been ${status.toLowerCase()}.`
       );
     }
 
