@@ -1,0 +1,13 @@
+//Build and Run Locally (for testing)
+docker-compose up --build
+
+// Login to Docker Hub
+docker login
+
+//Build and tag images
+docker build -t your_dockerhub_username/leave-frontend ./client
+docker build -t your_dockerhub_username/leave-backend ./server
+
+//Push to Docker Hub
+docker push your_dockerhub_username/leave-frontend
+docker push your_dockerhub_username/leave-backend
