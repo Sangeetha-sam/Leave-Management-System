@@ -1,30 +1,19 @@
-// server/metrics.js
-import client from 'prom-client';
+// server/middleware/metrics.js
 import express from 'express';
+import client from 'prom-client';
 
-const collectDefaultMetrics = client.collectDefaultMetrics;
-collectDefaultMetrics(); // Collect default Node.js metrics
+const router = express.Router();
 
-const app = express();
+// Enable default metrics collection
+client.collectDefaultMetrics();
 
-const httpRequestDurationMicroseconds = new client.Histogram({
-  name: 'http_request_duration_ms',
-  help: 'Duration of HTTP requests in ms',
-  labelNames: ['method', 'route', 'code'],
-  buckets: [50, 100, 200, 300, 400, 500, 1000]
+router.get('/metrics', async (req, res) => {
+  try {
+    res.set('Content-Type', client.register.contentType);
+    res.end(await client.register.metrics());
+  } catch (err) {
+    res.status(500).end(err.message);
+  }
 });
 
-app.use((req, res, next) => {
-  const end = httpRequestDurationMicroseconds.startTimer();
-  res.on('finish', () => {
-    end({ method: req.method, route: req.path, code: res.statusCode });
-  });
-  next();
-});
-
-app.get('/metrics', async (req, res) => {
-  res.set('Content-Type', client.register.contentType);
-  res.end(await client.register.metrics());
-});
-
-export default app;
+export default router;
