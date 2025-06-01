@@ -366,3 +366,105 @@ label {
   text-align: center;
   margin-bottom: 15px;
 }
+
+/* Header Layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #004d99;
+  color: #fff;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Notification Bell */
+.notification-wrapper {
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.bell-icon {
+  font-size: 22px;
+  color: white;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Right Section */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #666;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background-color: #cc0000;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.main-content {
+  padding: 20px;
+}

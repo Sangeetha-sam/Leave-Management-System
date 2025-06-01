@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { getDepartmentLeaves, updateLeaveStatus, getNotifications } from '../utils/api';
+import { getDepartmentLeaves, updateLeaveStatus } from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 const HODDashboard = ({ user }) => {
   const [leaveRequests, setLeaveRequests] = useState([]);
-  const [notifications, setNotifications] = useState([]);
   const navigate = useNavigate();
 
   const fetchLeaves = async () => {
@@ -17,18 +16,8 @@ const HODDashboard = ({ user }) => {
     }
   };
 
-  const fetchNotifications = async () => {
-    try {
-      const res = await getNotifications();
-      setNotifications(res.data);
-    } catch (err) {
-      console.error('Failed to fetch notifications:', err);
-    }
-  };
-
   useEffect(() => {
     fetchLeaves();
-    fetchNotifications();
   }, []);
 
   const handleApproveReject = async (leaveId, decision) => {
@@ -84,17 +73,6 @@ const HODDashboard = ({ user }) => {
               </tbody>
             </table>
           )}
-        </section>
-
-        <section className="notifications-section">
-          <h2>Notifications ({notifications.filter((n) => !n.read).length})</h2>
-          <ul className="notifications-list">
-            {notifications.map((n) => (
-              <li key={n._id} className={n.read ? "read" : "unread"}>
-                {n.message} - <span className="notification-date">{new Date(n.date).toLocaleString()}</span>
-              </li>
-            ))}
-          </ul>
         </section>
       </div>
     </Layout>
