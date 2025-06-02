@@ -119,6 +119,10 @@ const ApplyLeave = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!reason.trim()) {
+      alert('Please enter a reason for your leave.');
+      return;
+    }
     const token = localStorage.getItem('token');
     if (!token) {
       alert('Please login first.');
@@ -194,11 +198,12 @@ const ApplyLeave = ({ user }) => {
           </p>
 
           <label>
-            Reason (optional):
+            Reason :
             <textarea
               value={reason}
               onChange={(e) => setReason(e.target.value)}
-              placeholder="Optional"
+              placeholder="Enter reason"
+              required
             />
           </label>
 
