@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import './ApplyLeave.css';
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const timeSlots = [
   '9:00 - 9:55',

@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+// ✅ Use the environment variable from Vercel
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: process.env.REACT_APP_API_URL + '/api',
 });
 
+// ✅ Add token to request headers
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -12,12 +14,10 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
+// ✅ Use the same API instance for all requests
 export const registerUser = (userData) => API.post('/auth/register', userData);
 
-export const loginUser = (formData) => {
-  console.log('Sending login data:', formData);
-  return axios.post('http://localhost:5000/api/auth/login', formData);
-};
+export const loginUser = (formData) => API.post('/auth/login', formData);
 
 export const getProfile = () => API.get('/auth/profile');
 
@@ -32,16 +32,9 @@ export const getPendingLeaves = () => API.get('/leaves/pending');
 export const updateLeaveStatus = (leaveId, status) =>
   API.put(`/leaves/${leaveId}/status`, { status });
 
-
-// ✅ Notification APIs:
+// ✅ Notification APIs
 export const getNotifications = () => API.get('/notifications');
 
-// export const markNotificationAsRead = (id) => API.patch(`/notifications/${id}/read`);
-
-// export const deleteNotification = (id) => API.delete(`/notifications/${id}`);
-
-// Mark notification as read
 export const markNotificationAsRead = (id) => API.put(`/notifications/${id}/read`);
 
-// Delete notification
 export const deleteNotification = (id) => API.delete(`/notifications/${id}`);
