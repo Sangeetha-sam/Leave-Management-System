@@ -33,54 +33,43 @@ const Layout = ({ user, children }) => {
         <div className="left">
           <Link to="/dashboard" className="logo">Leave Management System</Link>
           <nav className="nav">
-          {user && (
-            <>
-              <Link
-                to={
-                  user.role === 'teacher'
-                    ? '/teacher/dashboard'
-                    : user.role === 'hod'
-                    ? '/hod/dashboard'
-                    : '/'
-                }
-                className="nav-link"
-              >
-                Dashboard
-              </Link>
+            <Link
+              to={
+                user?.role === 'teacher'
+                  ? '/teacher/dashboard'
+                  : user?.role === 'hod'
+                  ? '/hod/dashboard'
+                  : '/'
+              }
+              className="nav-link"
+            >
+              Dashboard
+            </Link>
 
-              {user.role !== 'hod' && (
-                <Link to="/apply-leave" className="nav-link">Apply Leave</Link>
-              )}
-            </>
-          )}
-        </nav>
+            {user?.role !== 'hod' && (
+              <Link to="/apply-leave" className="nav-link">Apply Leave</Link>
+            )}
+          </nav>
         </div>
 
         <div className="right">
-          {user ? (
-            <>
-              {/* Notification Bell */}
-              <div className="notification-wrapper" onClick={() => navigate('/notifications')}>
-                <FiBell className="bell-icon" />
-                {unreadCount > 0 && <span className="badge">{unreadCount}</span>}
-              </div>
+          {/* Notification Bell */}
+          <div className="notification-wrapper" onClick={() => navigate('/notifications')}>
+            <FiBell className="bell-icon" />
+            {unreadCount > 0 && (
+              <span className="badge">{unreadCount}</span>
+            )}
+          </div>
 
-              {user.profilePic ? (
-                <img src={user.profilePic} alt="profile" className="avatar" />
-              ) : (
-                <div className="avatar-placeholder">
-                  {user.name?.[0]?.toUpperCase() || '?'}
-                </div>
-              )}
-              <span className="username">{user.name}</span>
-              <button onClick={logout} className="logout-btn">Logout</button>
-            </>
+          {user?.profilePic ? (
+            <img src={user.profilePic} alt="profile" className="avatar" />
           ) : (
-            <>
-              <button onClick={() => navigate('/login')}>Login</button>
-              <button onClick={() => navigate('/register')}>Register</button>
-            </>
+            <div className="avatar-placeholder">
+              {user?.name?.[0]?.toUpperCase() || '?'}
+            </div>
           )}
+          <span className="username">{user?.name}</span>
+          <button onClick={logout} className="logout-btn">Logout</button>
         </div>
       </header>
       <main className="main-content">{children}</main>

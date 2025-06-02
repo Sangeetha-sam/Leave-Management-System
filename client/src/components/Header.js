@@ -19,22 +19,18 @@ const Header = ({ user }) => {
     <header className="app-header">
       <h1 className="app-title">Leave Management System</h1>
       <nav>
-      <button onClick={() => navigate('/')}>Home</button>
-
-      {user ? (
-        <>
-          <button onClick={goToDashboard}>Dashboard</button>
-          <button onClick={() => navigate('/notifications')}>Notifications</button>
+        <button onClick={() => navigate('/')}>Home</button>
+        {user && <button onClick={goToDashboard}>Dashboard</button>}
+        <button onClick={() => navigate('/notifications')}>Notifications</button>
+        {user ? (
           <button onClick={logout}>Logout</button>
-        </>
-      ) : (
-        <>
-          <button onClick={() => navigate('/login')}>Login</button>
-          <button onClick={() => navigate('/register')}>Register</button>
-        </>
-      )}
-    </nav>
-
+        ) : (
+          <>
+            <button onClick={() => navigate('/login')}>Login</button>
+            <button onClick={() => navigate('/register')}>Register</button>
+          </>
+        )}
+      </nav>
     </header>
   );
 };
