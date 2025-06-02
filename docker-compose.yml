@@ -12,10 +12,10 @@ services:
     build:
       context: ./server
     ports:
-      - "5000:5000"
+      - "5001:5000"
     container_name: leave-backend
     restart: always
     environment:
       - NODE_ENV=production
-      - MONGO_URI="mongodb+srv://rashmib112:rashhmii@clusterleave.i0thap7.mongodb.net/?retryWrites=true&w=majority&appName=Clusterleave"
+      - MONGO_URI="mongodb+srv://sangeethae134:sangeetha134@cluster0.i69fbg1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
       - JWT_SECRET="s3cr3t_K3y"
