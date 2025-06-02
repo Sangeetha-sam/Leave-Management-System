@@ -17,5 +17,5 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-      - MONGO_URI=mongodb+srv://sangeethae134:sangeetha134@cluster0.i69fbg1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      - JWT_SECRET=s3cr3t_K3y
+      - MONGO_URI="mongodb+srv://sangeethae134:sangeetha134@cluster0.i69fbg1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+      - JWT_SECRET="s3cr3t_K3y"
