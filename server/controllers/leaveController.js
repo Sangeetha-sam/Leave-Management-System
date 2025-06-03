@@ -28,10 +28,28 @@ export const applyLeave = async (req, res) => {
     });
 
     await newLeaveRequest.save();
-    // Notify HODs of the teacher's department about the new leave request
+    // Notify HODs of the teacher's department about the new leave request, including substitutes
     const hods = await User.find({ department: req.user.department, role: 'hod' });
+
+    let substituteSummary = 'Substitute Plan:\n';
+    if (substitutes.length === 0) {
+      substituteSummary += 'No substitutes specified.';
+    } else {
+      for (const slot of substitutes) {
+        const subTeacher = await User.findById(slot.substituteTeacherId).lean();
+        substituteSummary += `- Date: ${slot.date}, Section: ${slot.section}, Time: ${slot.timeSlot}, Substitute: ${subTeacher?.name || 'Unknown'}\n`;
+      }
+    }
+
     for (const hod of hods) {
-      await sendNotification(hod._id, `New leave request submitted by ${req.user.name}`);
+      await sendNotification(
+        hod._id,
+        `📋 New Leave Request from ${req.user.name} (${leaveType})
+    🗓️ ${startDate} to ${endDate}
+    Reason: ${reason}
+
+    ${substituteSummary}`
+      );
     }
 
     // Notify substitute teachers
